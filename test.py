@@ -3,11 +3,8 @@ from flask import Flask, request
 app = Flask(__name__)
 VERIFY_TOKEN = '123'
 
-@app.route('/')
-def hello():
-    return 'Hello, world!'
 
-@app.route('/webhook', methods=['GET'])
+@app.route('/', methods=['GET'])
 def webhook():
     hub_mode = request.args.get('hub.mode')
     hub_verify_token = request.args.get('hub.verify_token')
